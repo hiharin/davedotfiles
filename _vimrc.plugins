@@ -30,7 +30,7 @@ Plug 'Lokaltog/vim-easymotion'
 
     " file tree
 Plug 'scrooloose/nerdtree'
-nmap <leader>nt :NERDTreeFind<CR>
+nmap <leader>nt :NERDTreeToggle<CR>
 
     " NERDTree syncs and plays better across tabs
 "Plug 'jistr/vim-nerdtree-tabs'

@@ -19,6 +19,7 @@ set expandtab                       " insert spaces instead of tabs
 set smartindent                     " seems to do a decent job with indenting
 set list                            " show whitespace indicated by 'listchars'
 set listchars=tab:»\ ,trail:·,extends:…
+autocmd FileType lua setl tabstop=2 shiftwidth=2 softtabstop=2
 
 " UI
 set t_Co=256                        " let terminal vim use 256 colors
@@ -67,8 +68,16 @@ set hlsearch                        " Highlight all of the search terms
 set tags=./.tags;$HOME              " search for a tag file named '.tags' upwards until $HOME
 
 "spelling
-set spell
-set spell spelllang=en_us
+
+autocmd FileType c,h,hpp,cpp  setl spell spell  spelllang=en_us
+map <leader>ss :setlocal spell!<cr>
+
+" Shortcuts using <leader>
+map <leader>sn ]s
+map <leader>sp [s
+map <leader>sa zg
+map <leader>s? z=
+
 
 " ------------------------------------------
 " Plugins
