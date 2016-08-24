@@ -2,6 +2,9 @@ set nocompatible            " be iMproved
 filetype off                " required!
 filetype plugin indent on   " required!
 
+set background=dark
+
+
 " ------------------------------------------
 " General options
 " ------------------------------------------
@@ -94,8 +97,11 @@ endif
 if has("gui_running")
     set guioptions=a
     " https://github.com/Lokaltog/powerline-fonts
-"    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h10
-    set guifont=Essential\ PragmataPro:h12
+    " for Mac
+"   set guifont=Droid\ Sans\ Mono\ for\ Powerline\ h10
+    " for linux
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
+"    set guifont=Essential\ PragmataPro\ h12
 endif
 
 " ------------------------------------------
