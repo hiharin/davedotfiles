@@ -80,8 +80,8 @@ map <leader>a :A<CR>
 
     " vim front end for 'the silver searcher'
 Plug 'rking/ag.vim'
-let g:aghighlight = 1
-let g:agprg="ag --column --smart-case"
+let g:ag_highlight = 1
+let g:ag_prg="ag --column --smart-case"
 nnoremap <leader>/ :call SearchCurrentWord() <Bar> AgFromSearch!<CR>
 
     " provides hg/git change status in the left gutter
