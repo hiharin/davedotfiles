@@ -68,7 +68,7 @@ set gdefault                        " s///g is implied, explicitly adding g nega
 set incsearch                       " jump to the first instance as you type the search term
 set showmatch                       " always show matching ()'s
 set hlsearch                        " Highlight all of the search terms
-set tags=./.tags;$HOME              " search for a tag file named '.tags' upwards until $HOME
+set tags=./.git/tags;$HOME              " search for a tag file named '.tags' upwards until $HOME
 
 "spelling
 
