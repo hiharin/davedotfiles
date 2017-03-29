@@ -45,6 +45,8 @@ Plug 'scrooloose/syntastic'
 
     " multi-cursors ala Sublime Text
 Plug 'terryma/vim-multiple-cursors'
+" for a.vim to be able to search in cpp and headers when navigating
+let g:alternateSearchPath='sfr:../cpp,sfr:../source.sfr:../src,sfr:../headers,sfr:../include,sfr:../inc'
 
     " syntax autocompletion and intellisense. requires llvm/clang for c/c++
 Plug 'Valloric/YouCompleteMe'

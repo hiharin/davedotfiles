@@ -70,8 +70,6 @@ set showmatch                       " always show matching ()'s
 set hlsearch                        " Highlight all of the search terms
 set tags=./.git/tags;$HOME              " search for a tag file named '.tags' upwards until $HOME
 
-" for a.vim to be able to search in cpp and headers when navigating
-let g:alternateSearchPath='sfr:../cpp,sfr:../source.sfr:../src,sfr:../headers,sfr:../include,sfr:../inc'
 "spelling
 
 autocmd FileType c,h,hpp,cpp  setl spell spell  spelllang=en_us
