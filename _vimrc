@@ -9,7 +9,7 @@ set background=dark
 " General options
 " ------------------------------------------
 " misc
-let mapleader="\\"                   " change the leader key to comma
+let mapleader=" "                   " change the leader key to comma
 set clipboard=unnamed               " use OS clipboard as default yank buffer
 set history=1000                    " remember a ton of commands
 set backspace=indent,eol,start      " backspace over everything
@@ -85,7 +85,7 @@ map <leader>s? z=
 " ------------------------------------------
 " Plugins
 " ------------------------------------------
-
+set background=dark
 if filereadable(expand("~/.vimrc.plugins"))
     source ~/.vimrc.plugins
     set noshowmode                  " airline shows me my editor mode
@@ -100,8 +100,8 @@ if has("gui_running")
     " for Mac
 "   set guifont=Droid\ Sans\ Mono\ for\ Powerline\ h10
     " for linux
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
-"    set guifont=Essential\ PragmataPro\ h12
+"    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
+    set guifont=Roboto\ Mono\ for\ Powerline\ Regular\ 10
 endif
 
 " ------------------------------------------
