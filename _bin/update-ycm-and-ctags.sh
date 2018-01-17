@@ -28,12 +28,32 @@ ycmconf=$basepath/.ycm_extra_conf.py
 tags=$basepath/.tags
 
 if [ ! -f $ycmconf ]; then
+    echo "'-I'," > $tmpfile
+    echo "'.'," >> $tmpfile
+    echo "'-isystem'," >> $tmpfile
+    echo "'/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1'," >> $tmpfile
+    echo "'-isystem'" >> $tmpfile
+    echo "'/usr/local/include'," >> $tmpfile
+    echo "'-isystem'" >> $tmpfile
+    echo "'/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include'," >> $tmpfile
+    echo "'-isystem'" >> $tmpfile
+    echo "'/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include'," >> $tmpfile
+    echo "'-isystem'" >> $tmpfile
+    echo "'/usr/include'," >> $tmpfile
+fi
+
+
+if [ ! -f $ycmconf ]; then
     echo "YCM extra config file not found. Downloading YCM's boilerplate..."
     curl -fLo "$ycmconf" \
         https://raw.githubusercontent.com/Valloric/ycmd/master/cpp/ycm/.ycm_extra_conf.py
 fi
 
-find $basepath -type f -iname '*.h' -printf "'-I%h',\n" | uniq > $tmpfile
+if [ "$(uname)" == "Darwin" ]; then
+    gfind $basepath -type f -iname '*.h' -printf "'-I', '%h',\n" | uniq >> $tmpfile
+else
+    find $basepath -type f -iname '*.h' -printf "'-I%h',\n" | uniq > $tmpfile
+fi
 
 # delete the .pyc cache file, since we're overwriting the original
 [ -f "${ycmconf}c" ] && rm "${ycmconf}c"
@@ -47,7 +67,8 @@ lead="^'c++'"
 trail='^]'
 sed -i "/$lead/,/$trail/{ /$lead/{p; r $tmpfile
         }; /$trail/p; d }" $ycmconf
-[ $? -eq 0 ] && rm $tmpfile
+[ $? -eq 0 ]
+#&& rm $tmpfile
 
 ctags --help 2> /dev/null | grep -i 'exuberant' &> /dev/null || error 'Exuberant Ctags not found. Skipping tag file.'
 ctags -R -f $tags $basepath
