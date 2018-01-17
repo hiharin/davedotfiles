@@ -9,7 +9,7 @@ set background=dark
 " General options
 " ------------------------------------------
 " misc
-let mapleader=" "                   " change the leader key to comma
+let mapleader="\\"                   " change the leader key to comma
 set clipboard=unnamed               " use OS clipboard as default yank buffer
 set history=1000                    " remember a ton of commands
 set backspace=indent,eol,start      " backspace over everything
