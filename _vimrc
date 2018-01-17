@@ -3,6 +3,13 @@ filetype off                " required!
 filetype plugin indent on   " required!
 
 set background=dark
+if !exists("g:os")
+    if has("win64") || has("win32") || has("win16")
+        let g:os = "Windows"
+    else
+        let g:os = substitute(system('uname'), '\n', '', '')
+    endif
+endif
 
 
 " ------------------------------------------
@@ -96,12 +103,17 @@ endif
 
 if has("gui_running")
     set guioptions=a
-    " https://github.com/Lokaltog/powerline-fonts
-    " for Mac
-"   set guifont=Droid\ Sans\ Mono\ for\ Powerline\ h10
-    " for linux
-"    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
-    set guifont=Roboto\ Mono\ for\ Powerline\ Regular\ 10
+    if g:os == "Darwin"
+        " https://github.com/Lokaltog/powerline-fonts
+        " for Mac
+         set guifont=Essential\ PragmataPro:h12
+        " set guifont=Droid\ Sans\ Mono\ for\ Powerline:h10
+        " set guifont=Roboto\ Mono\ for\ Powerline\ Regular:h16
+    else
+        " for linux
+        " set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
+        set guifont=Roboto\ Mono\ for\ Powerline\ Regular\ 10
+    endif
 endif
 
 " ------------------------------------------
